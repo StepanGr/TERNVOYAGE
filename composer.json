@@ -1,0 +1,16 @@
+{
+    "name": "root/ternvoyage",
+    "authors": [
+        {
+            "name": "Dmitriy Makuh",
+            "email": "mtmato6@gmail.com"
+        }
+    ],
+    "config": {
+        "vendor-dir": "system/storage/vendor/"
+    },
+    "require": {
+        "box/spout": "^2.7"
+    }
+
+}
