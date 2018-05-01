@@ -1,7 +1,7 @@
 <?php echo $header; ?>
     <script type="text/javascript">
     var map;
-    var image = '../image/catalog/other/marker.png';
+    var image = '../image/catalog/other/marker.svg';
     $(document).ready(function(){
       map = new GMaps({
         el: '#map',
@@ -240,52 +240,102 @@
           lat: 46.635417,
           lng: 32.61686699999996,
           title: 'Херсон',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+        },
         {
           lat: 46.975033,
           lng: 31.994582899999955,
           title: 'Миколаїв',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+        },
         {
           lat: 47.5605,
           lng: 31.33611700000006,
           title: 'Вознесенськ',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 47.8227621,
           lng: 31.18408260000001,
           title: 'Южноукраїнськ',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 48.04512510000001,
           lng: 30.888431500000024,
           title: 'Первомайськ',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 48.7699292,
           lng: 30.215440599999965,
           title: 'Умань',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 49.233083,
           lng: 28.468216900000016,
           title: 'Вінниця',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 49.422983,
           lng: 26.987133099999937,
           title: 'Хмельницький',
-          icon: image,},          
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },          
         {
           lat: 49.553517,
           lng: 25.594767000000047,
           title: 'Тернопіль',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 49.839683,
           lng: 24.029717000000005,
           title: 'Львів',
-          icon: image,},        
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },        
         // {
         //   lat: 52.6230132,
         //   lng: 20.375358900000037,
@@ -305,137 +355,272 @@
           lat: 50.0411867,
           lng: 21.999119599999972,
           title: 'Жешув',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 50.06465009999999,
           lng: 19.94497990000002,
           title: 'Краків',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 50.26489189999999,
           lng: 19.02378150000004,
           title: 'Катовіце',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 50.6751067,
           lng: 17.921297600000003,
           title: 'Ополе',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 51.1078852,
           lng: 17.03853760000004,
           title: 'Вроцлав',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 51.2070067,
           lng: 16.155323100000032,
           title: 'Легниця',
-          icon: image,},          
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },          
         {
           lat: 51.8419861,
           lng: 16.593754499999932,
           title: 'Лешно',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 52.406374,
           lng: 16.925168100000064,
           title: 'Познань',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 51.39772199999999,
           lng: 16.20957880000003,
           title: 'Любін',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 51.80344,
           lng: 15.717070000000035,
           title: 'Нова Суль',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 51.9356214,
           lng: 15.506186200000002,
           title: 'Зелена Гура',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 52.2472962,
           lng: 15.53357219999998,
           title: 'Свебодзін',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 52.7325285,
           lng: 15.236930499999971,
           title: 'Гожув-Велькопольський',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 53.4285438,
           lng: 14.552811600000041,
           title: 'Щецин',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 50.7230879,
           lng: 23.251968499999975,
           title: 'Замосць',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 51.2464536,
           lng: 22.568446300000005,
           title: 'Люблін',
-          icon: image,},          
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },          
         {
           lat: 52.0811536,
           lng: 21.023860199999945,
           title: 'Пясочне',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 52.2296756,
           lng: 21.012228700000037,
           title: 'Варшава',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 51.7592485,
           lng: 19.45598330000007,
           title: 'Лодзь',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 52.230618,
           lng: 19.364278000000013,
           title: 'Кутно',
-          icon: image,},          
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },          
         {
           lat: 52.6483303,
           lng: 19.067735699999957,
           title: 'Вроцлавек',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 53.0137902,
           lng: 18.59844369999996,
           title: 'Торунь',
-          icon: image,},          
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },          
         {
           lat: 53.12348040000001,
           lng: 18.008437800000024,
           title: 'Бидгощ',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 53.4837486,
           lng: 18.753564900000015,
           title: 'Грудзендз',
-          icon: image,},          
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },          
         {
           lat: 54.35202520000001,
           lng: 18.64663840000003,
           title: 'Гданськ',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
         {
           lat: 54.5188898,
           lng: 18.530540900000005,
           title: 'Гдиня',
-          icon: image,},          
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },          
         {
           lat: 54.46414799999999,
           lng: 17.02848240000003,
           title: 'Слупськ',
-          icon: image,},
+          icon: {
+                url: "/image/catalog/other/marker.svg",
+                size: new google.maps.Size(48, 48),
+                scaledSize: new google.maps.Size(48, 48)
+              },
+            },
 
       ]);
 

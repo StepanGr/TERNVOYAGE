@@ -19,4 +19,4 @@ $_['text_account']      = 'Особистий кабінет';
 $_['text_order']        = 'Історія замовлень';
 $_['text_wishlist']     = 'Список побажань';
 $_['text_newsletter']   = 'Розсилання новин';
-$_['text_powered']      = 'PANBUS.COM.UA &copy; 2016-%s';
+$_['text_powered']      = 'TERNVOYAGE.COM.UA &copy; 2016-%s';
