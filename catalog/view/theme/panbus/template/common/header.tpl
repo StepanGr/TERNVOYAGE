@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="<?php echo $name; ?>" />
 
 <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i&amp;subset=cyrillic" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&amp;subset=cyrillic" rel="stylesheet">
 <link href="catalog/view/theme/panbus/stylesheet/stylesheet.css" rel="stylesheet">
 <link href="catalog/view/javascript/jquery/easy-autocomplete.css" type="text/css" rel="stylesheet" />
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -54,19 +54,25 @@
   <div class="block-bg-overlay"></div>
   <div class="header-content">
     <div class="header-content-inner">
-      <img class="header-logo" src="../image/catalog/logo.png" title="<?php echo $name; ?>" alt="<?php echo $name; ?>"/>
-        <h1><span>Україна - Польща - Україна</span></h1>
-      <div class="slogan"><div><span>П</span>одорожуйте</div>  <div><span>А</span>втобусами з</div>  <div><span>Н</span>ами</div></div>
+      <img class="header-logo" src="../image/catalog/logo-white.png" title="<?php echo $name; ?>" alt="<?php echo $name; ?>"/>
+      <div class="slogan">Міжнародні перевезення</div>
+      <h1><span>Україна - Польща - Україна</span></h1>
     </div>
     <div class="header-search">
       <div class="search-item ">
         <i class="fa fa-map-marker" aria-hidden="true"></i>
         <input type="text" id="wherefrom" placeholder="<?php echo $text_wherefrom; ?>">
+        <div class="search-item__spiner search-item__spiner-wherefrom">
+          <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+        </div>
         <div class="error error-search"><?php echo $text_choise_wherefrom; ?></div>
       </div>
       <div class="search-item">
         <i class="fa fa-map-marker" aria-hidden="true"></i>
         <input type="text" id="where" placeholder="<?php echo $text_from; ?>">
+        <div class="search-item__spiner search-item__spiner-from">
+          <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+        </div>
         <div class="error error-search"><?php echo $text_choise_from; ?></div>
       </div>
       <div class="search-item">
@@ -96,12 +102,12 @@
 <?php if ($categories) { ?>
   <nav id="menu" class="navbar navbar-fixed-top affix-top">
     <div class="navbar-header">
-      <div id="logo"><a href="<?php echo $home; ?>"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" class="img-responsive" /></a>
+      <div id="logo"><a href="<?php echo $home; ?>"><img src="../image/catalog/logo-white.png" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" class="img-responsive" /></a>
       </div>
       <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
     </div>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav corner-border">
+      <ul class="nav navbar-nav">
         <?php foreach ($categories as $category) { ?>
         <?php if ($category['children']) { ?>
         <li class="dropdown"><a href="<?php echo $category['href']; ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $category['name']; ?></a>
@@ -139,25 +145,45 @@
 
 <script type="text/javascript">
 
-var options = {
+var optionsTo = {
 
 url: function(phrase) {
+  return "index.php?route=product/search/autocomplete&q=" + phrase;
+},
+list: {
+  onChooseEvent: function(){
+    var where = $('#where');
+    valueID.to_id = where.getSelectedItemData().city_id ? where.getSelectedItemData().city_id:"";
+  },
+  onLoadEvent: function() {
+    $('.search-item__spiner-from').hide();
+  },
+  match: {
+    enabled: true
+  }
+},
+template: {
+      type: "description",
+      fields: {
+          description: "contry_iso"
+      }
+  },
+  adjustWidth: false,
+  getValue: "name",
+  requestDelay: 500
+};
+var optionsFrom = {
 
+url: function(phrase) {
   return "index.php?route=product/search/autocomplete&q=" + phrase;
 },
 list: {
   onChooseEvent: function(){
     var wherefrom = $('#wherefrom');
-    var where = $('#where');
-    if(wherefrom.getSelectedItemData().city_id != undefined)
-    {
-    valueID.from_id = wherefrom.getSelectedItemData().city_id;
-  };
-    if(where.getSelectedItemData().city_id != undefined)
-    {
-    valueID.to_id = where.getSelectedItemData().city_id;
-  };
-
+    valueID['from_id'] =  wherefrom.getSelectedItemData().city_id ? wherefrom.getSelectedItemData().city_id:"";
+  },
+  onLoadEvent: function() {
+    $('.search-item__spiner-wherefrom').hide();
   },
   match: {
     enabled: true
@@ -175,8 +201,16 @@ template: {
   requestDelay: 500
 
 };
-  var valueID = {}
-  $('#wherefrom, #where').easyAutocomplete(options);
+  var valueID = { };
+  $('#where').easyAutocomplete(optionsTo);
+  $('#where').on('input', function () {
+    this.value ? $('.search-item__spiner-from').show() : $('.search-item__spiner-from').hide();
+  })
+  $('#wherefrom').easyAutocomplete(optionsFrom);
+  $('#wherefrom').on('input', function () {
+    this.value ? $('.search-item__spiner-wherefrom').show() : $('.search-item__spiner-wherefrom').hide();
+    ;
+})
   $('#search-submit').on('click',function(){
     if(!valueID['from_id']  && !valueID['to_id'] ){
      $('.error-search').show();

@@ -8,7 +8,9 @@
     <?php } else { ?>
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
-    <div id="content"><?php echo $content_top; ?>
+    <div id="content">
+      <div class="content-list">
+      <?php echo $content_top; ?>
       <?php if ($products) { ?>
         <h1><?php echo $text_search; ?> <span class="search-result"><?php echo $entry_search; ?></span></h1>
         <div class="row">
@@ -34,11 +36,11 @@
             <div class="product-thumb__caption-left">
               <div class="image"><a href="<?php echo $product['href']; ?>"><img itemprop="image" src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a>
               </div>
-              <div class="product-thumb__manufacturer">
+<!--               <div class="product-thumb__manufacturer">
                 <ul class="list-unstyled">
                   <li><?php echo $text_manufacturer; ?><br> <a><span itemprop="brand"><?php echo $product['manufacturer']; ?></span></a></li>
                 </ul>
-              </div>
+              </div> -->
               <div class="product-thumb__category">
                 <ul class="list-unstyled">
                   <li><?php echo $text_bus; ?><br> <a><span><?php echo $product['main_сategory']; ?></span></a></li>
@@ -117,6 +119,8 @@
       <?php echo $content_bottom; ?>
       </div>
     </div>
-    <?php echo $column_right; ?></div>
+  </div>
+    <?php echo $column_right; ?>
+  </div>
 </div>
 <?php echo $footer; ?>

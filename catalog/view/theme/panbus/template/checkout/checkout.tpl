@@ -127,7 +127,7 @@
                   </div>
                 </div>
                 </td>
-                <td class="text-center"><div style="display: inline-block; padding: 5px 10px; color: #cd4e37; border: 2px solid #cd4e37;"><?php echo $product['quantity']; ?></div></td>
+                <td class="text-center"><div style="display: inline-block; padding: 5px 10px; color: #f03434; border: 2px solid #f03434;"><?php echo $product['quantity']; ?></div></td>
                 <td class="text-right"><?php echo $product['price']; ?></td>
                 <td class="text-right"><?php echo $product['total']; ?></td>
                 <td class="text-center">

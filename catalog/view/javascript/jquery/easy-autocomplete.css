@@ -55,7 +55,9 @@
     padding-bottom: 0;
     padding-left: 0;
     position: relative;
-    top: -1px
+    top: -1px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
 }
 
 .easy-autocomplete-container ul li,
@@ -73,11 +75,13 @@
 
 .easy-autocomplete-container ul li:last-child {
     padding-bottom: 6px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
 }
 
 .easy-autocomplete-container ul li.selected {
     color: #ffffff;
-    background-color: #cd4e37;
+    background-color: #f03434;
     cursor: pointer
 }
 
@@ -101,7 +105,7 @@
 }
 
 .eac-description .eac-item span {
-    color: #cd4e37;
+    color: #f03434;
     font-weight: 700;
     float: right;
 }

@@ -10,6 +10,7 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" itemscope itemtype="http://schema.org/Product">
+      <div class="content-item">
       <div class="row">
         <?php if ($column_left || $column_right) { ?>
         <?php $class = 'col-sm-6'; ?>
@@ -26,13 +27,13 @@
                   <?php } ?>
                 <?php } ?>
               </div>
-              <div class="product-manufacturer">
+<!--               <div class="product-manufacturer">
               <ul class="list-unstyled">
                 <?php if ($manufacturer) { ?>
                 <li><?php echo $text_manufacturer; ?><br> <a href="<?php echo $manufacturers; ?>"><span itemprop="brand"><?php echo $manufacturer; ?></span></a></li>
                 <?php } ?>
               </ul>
-              </div>
+              </div> -->
               <div class="product-category">
                 <ul class="list-unstyled">
                   <li><?php echo $text_bus; ?><br> <a><span ><?php echo $main_catagory; ?></span></a></li>
@@ -296,8 +297,11 @@
         </div>
       </div>
 
-      <?php echo $content_bottom; ?></div>
-    <?php echo $column_right; ?></div>
+      <?php echo $content_bottom; ?>
+      </div>
+    </div>
+    <?php echo $column_right; ?>
+  </div>
 </div>
 <script type="text/javascript">
 

@@ -8,7 +8,9 @@
     <?php } else { ?>
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
-    <div id="content"><?php echo $content_top; ?>
+    <div id="content">
+      <div class="content-list">
+      <?php echo $content_top; ?>
       <h1><?php echo $heading_title; ?></h1>
       <?php if ($description) { ?>
       <div class="row">
@@ -129,7 +131,10 @@
       </div>
       </div>
       <?php } ?>
-      <?php echo $content_bottom; ?></div>
-    <?php echo $column_right; ?></div>
+      <?php echo $content_bottom; ?>
+    </div>
+  </div>
+    <?php echo $column_right; ?>
+  </div>
 </div>
 <?php echo $footer; ?>
