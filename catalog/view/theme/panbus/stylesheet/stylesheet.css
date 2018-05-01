@@ -401,29 +401,38 @@ header {
     position: absolute;
     top: 100px;
     margin: 0px auto;
+    width: 100%;
     padding: 20px 10px 0px 10px;
+    background-color: transparent;
     transition: all 0.35s;
     z-index: 999;
-    width: 100%;
+}
+
+@media (max-height: 500px) {
+    .header-content .header-search {
+        background-color: #014d6d;  
+    }
+
 }
 
 @media (min-width: 1200px) {
     .header-content .header-search {
         position: fixed;
         top: 0;
-        left: 15%;
+        left: 16%;
         margin-left: 0;
         z-index: 1040;
         max-width: 600px;
     }
     .header-content .header-search.affix {
         margin: 0;
+        background-color: transparent;
     }
 }
 
 @media (min-width: 1600px) {
     .header-content .header-search {
-        left: 21%;
+        left: 23%;
         max-width: 800px;
     }
 }
@@ -434,31 +443,47 @@ header {
     left: 0;
     margin: 0px auto;
     padding: 40px 10px 20px 10px;
+    background-color: transparent;
     max-width: 700px;
     transition: all 0.35s;
 }
 
+.common-home .header-content .header-search.affix {
+    margin-top: 10px;
+    background-color: #014d6d;
+}
+
 @media (max-height: 500px) {
-	.common-home .header-content .header-search {
-	}
+    .common-home .header-content .header-search {
+        background-color: #014d6d;  
+    }
 }
 
 @media (min-width: 768px) {
-	.common-home .header-content .header-search {
-	    position: relative;
-	    top: 0;
-	    left: 0;
-	    padding: 40px 10px 20px 10px;
-	    max-width: 850px;
-	}
-	.common-home .header-content .header-search.affix {
-	    position: relative;
-	    top: 0;
-	    left: 0;
-	    margin: 0px auto;
-	    padding: 40px 10px 20px 10px;	
-	}
+    .common-home .header-content .header-search {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: 0px auto;
+        padding: 40px 10px 20px 10px;
+        background-color: transparent;
+        max-width: 850px;
+    }
+    .common-home .header-content .header-search.affix {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: 0px auto;
+        padding: 40px 10px 20px 10px;
+        background-color: transparent;
+    
+    }
 }
+
+
+
+
+
 
 .header-content .header-search .search-item {
     position: relative;
@@ -1057,8 +1082,11 @@ span.hidden-lg {
     margin: 0;
 }
 
-.content-list {
-    padding-top: 50px
+
+@media (min-width: 768px) {
+    .content-list {
+        padding-top: 50px;
+    }  
 }
 
 @media (min-width: 1200px) {
@@ -1067,8 +1095,10 @@ span.hidden-lg {
     }  
 }
 
-.content-item {
-    padding-top: 70px
+@media (min-width: 768px) {
+    .content-item {
+        padding-top: 70px;
+    }  
 }
 
 @media (min-width: 1200px) {
@@ -1108,6 +1138,7 @@ footer a {
     border: 1px solid #fff;
     padding: 5px;
     cursor: pointer;
+    border-radius: 2px;
 }
 
 footer a:hover {
@@ -1485,11 +1516,12 @@ footer .powered {
     text-align: center;    		
 }
 
-@media (min-width: 768px) {
+@media (min-width: 800px) {
     .product-thumb__caption-left {
 		display: inline-block;
 		vertical-align: top;
 		text-align: left;
+        padding: 0  20px;
     }
 }
 
@@ -1505,13 +1537,6 @@ footer .powered {
 
 .product-grid .product-thumb .image {
     float: none;
-}
-
-@media (min-width: 768px) {
-    .product-thumb__caption-left {
-        padding: 0  20px;
-
-    }
 }
 
 .product-thumb h3 {
@@ -1553,7 +1578,7 @@ footer .powered {
     padding: 0 20px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 800px) {
     .product-list .product-thumb .caption {
         display: inline-block;
         vertical-align: top;
@@ -2084,10 +2109,16 @@ h2.price {
     font-size: 27px;
 }
 
-@media (min-width: 768px) {
+
+.product-options .product-options__button-buy {
+    display: block;
+    margin-top: 23px;
+}
+
+@media (min-width: 800px) {
     .product-options .product-options__button-buy {
         width: 150px;
-        margin-top: 23px;
+        display: inline-block;
     }
 }
 
@@ -2448,6 +2479,7 @@ h2.price {
     padding: 3px 8px;
     border: 1px solid #f03434;
     font-size: 16px;
+    border-radius: 2px;
 }
 
 .contact-block.telephone a {

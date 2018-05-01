@@ -64,7 +64,7 @@
                       <div class="form-group__value"><?php echo $product['departure_to']; ?></div>
                     </div>
                   </div>
-                  <div class="form-group_margin">
+                  <div class="form-group">
                     <label><?php echo $text_time_road; ?></label>
                     <div class="form-group_bg">
                       <div class="form-group__value form-group__value_time form-group__value_timeinroad"><?php echo $product['time_road']; ?></div>
