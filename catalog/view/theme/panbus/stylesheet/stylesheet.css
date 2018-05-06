@@ -316,6 +316,11 @@ header {
     margin-left: 10px !important;
 }
 
+#logo.toggled {
+    position: inherit;
+    margin-left: 10px !important;
+}
+
 .common-home .header-content {
     position: absolute;
     text-align: center;
@@ -623,6 +628,7 @@ header {
 	color: #f03434;
 	border: 2px solid #f03434;
 	transition: all 0.25s;
+    border-radius: 2px;
 }
 
 .choice-block-inmain .choice-block-inmain__text:hover,
@@ -674,6 +680,11 @@ span.hidden-lg {
 
 .nav-tabs>li>a {
     border-radius: 0;
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
 }
 
 /* Gradent to all drop down menus */
@@ -856,34 +867,15 @@ span.hidden-lg {
     }
 }
 
-.corner-border {
-    height: auto;
-    border: none;
-}
-
-@media (min-width: 768px) {
-    .corner-border {
-        height: 0px;
-        border-bottom: 80px solid rgba(255, 255, 255, 0.24);
-        border-left: 20px solid transparent;
-    }
-}
-
 #menu.affix {
     padding-top: 0px;
     background-color: #014d6d;
-    box-shadow: 0.5px 0.866px 5px 0 rgba(0, 0, 0, .2);
+    -webkit-box-shadow: 0px 3px 5px 0 rgba(0, 0, 0, .2);
+    box-shadow: 0px 3px 5px 0 rgba(0, 0, 0, .2)
 }
 
-@media (min-width: 768px) {
-    #menu.affix .corner-border {
-        border-bottom: 80px solid #dadada;
-        border-left: 20px solid transparent;
-    }
-}
-
-.common-home #menu .navbar-collapse {
-    top: 80px;
+#menu.toggled {
+    background-color: #014d6d;
 }
 
 @media (min-width: 768px) {
@@ -894,16 +886,16 @@ span.hidden-lg {
 
 #menu .navbar-collapse {
     position: absolute;
-    top: 130px;
+    top: 80px;
     width: 100%;
-    background-color: #dadada;
+    background-color: #014c6c;
     border: none;
+    box-shadow: none;
 }
 
-@media (max-width: 767px) {
-    #menu.affix .navbar-collapse {
-        top: 80px;
-    }
+#menu .navbar-collapse.in {
+    -webkit-box-shadow: 0px 3px 5px 0 rgba(0, 0, 0, .2);
+    box-shadow: 0px 3px 5px 0 rgba(0, 0, 0, .2)
 }
 
 @media (min-width: 768px) {
@@ -2484,7 +2476,6 @@ h2.price {
 
 .contact-block.telephone a {
 	min-width: 157px;
-	text-align: left;
 }
 
 .information-contact #content>div>div>div:nth-child(1) h4 .fa {

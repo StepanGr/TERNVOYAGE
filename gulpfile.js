@@ -30,7 +30,7 @@ gulp.task('copy', function() {
 gulp.task("sass", function() {
     return gulp.src("src/scss/*.scss")
     .pipe(sass())
-    .pipe(gulp.dest("dist/catalog/view/theme/panbus/stylesheet"))
+    .pipe(gulp.dest("catalog/view/theme/panbus/stylesheet"))
     .pipe(browserSync.reload({
         stream: true
     }));
@@ -83,7 +83,7 @@ gulp.task('img', function () {
 
 });
 
-gulp.task("watch", [ "browser", "sass" ], function() {
+gulp.task("watch", ["browser"], function() {
     gulp.watch('src/scss/*.scss', [ "sass" ]);
     gulp.watch('catalog/view/theme/panbus/stylesheet/*.css', browserSync.reload);
     gulp.watch('catalog/view/theme/**/*.tpl', browserSync.reload);
