@@ -3,6 +3,8 @@ class ControllerCheckoutPaymentMethod extends Controller {
 	public function index() {
 		$this->load->language('checkout/checkout');
 
+		// Payment Methods
+		$method_data = array();
 		if (isset($this->session->data['payment_address'])) {
 			// Totals
 			$totals = array();
@@ -36,9 +38,6 @@ class ControllerCheckoutPaymentMethod extends Controller {
 					$this->{'model_extension_total_' . $result['code']}->getTotal($total_data);
 				}
 			}
-
-			// Payment Methods
-			$method_data = array();
 
 			$this->load->model('extension/extension');
 
@@ -93,7 +92,8 @@ class ControllerCheckoutPaymentMethod extends Controller {
 			$data['payment_methods'] = array();
 		}
 
-		if (isset($this->session->data['payment_method']['code'])) {
+		if (isset($this->session->data['payment_method']['code'])
+			&& array_key_exists($this->session->data['payment_method']['code'], $method_data)) {
 			$data['code'] = $this->session->data['payment_method']['code'];
 		} else {
 			$data['code'] = '';

@@ -203,9 +203,8 @@
           </div>
           <?php } ?>
         </div>
-
-
-        <?php echo $payment; ?>
+            <div id="payment-methods" class="payment-methods"></div>
+        <div class="payment-confirm"></div>
         <?php } else { ?>
         <script type="text/javascript"><!--
         location = '<?php echo $redirect; ?>';
@@ -237,23 +236,41 @@
 <script type="text/javascript">
 
     $(function() {
-        $('.spinner-overlay').animate({opacity: 0.9});
+      $('.spinner-overlay').animate({opacity: 0.9});
 
-        changeCountryPhone($("input[name = 'passenger_telephone[]'], input[name = 'telephone']"));
+      changeCountryPhone($("input[name = 'passenger_telephone[]'], input[name = 'telephone']"));
 
-        $('a[name=\'remove\']').on('click',function(event){
-            event.preventDefault();
-            passenger.remove(this.id);
-        });
+      $('a[name=\'remove\']').on('click', function (event) {
+        event.preventDefault();
+        passenger.remove(this.id);
+      });
 
-        $('.passenger-data__remove').on('click', function () {
-           passenger.update($("a[name = 'remove']").attr('id'), true);
-        })
-        $('.passengers__add').on('click', function () {
-            passenger.update($("a[name = 'remove']").attr('id'), false);
-        })
+      $('.passenger-data__remove').on('click', function () {
+        passenger.update($("a[name = 'remove']").attr('id'), true);
+      })
+      $('.passengers__add').on('click', function () {
+        passenger.update($("a[name = 'remove']").attr('id'), false);
+      })
 
-    });
+      $.ajax({
+        url: 'index.php?route=checkout/payment_method',
+        dataType: 'html',
+        success: function (html) {
+          $('#payment-methods').html(html);
 
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+          alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+      }).done(function (x) {
+        payment.loadPaymentConfirm(
+                $('input[name=payment_method]:checked', $.parseHTML(x)).val(),
+                'div.payment-confirm');
+
+      });
+      $('#payment-methods').on('change','input[name=payment_method]', function () {
+        payment.loadPaymentConfirm($(this).val(),'div.payment-confirm');
+      })
+    })
 </script>
  

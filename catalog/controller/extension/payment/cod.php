@@ -1,13 +1,18 @@
 <?php
 class ControllerExtensionPaymentCod extends Controller {
 	public function index() {
-		$data['button_confirm'] = $this->language->get('button_confirm');
 
-		$data['text_loading'] = $this->language->get('text_loading');
+		if(isAjax())
+		{
+			$data['button_confirm'] = $this->language->get('button_confirm');
 
-		$data['continue'] = $this->url->link('checkout/success');
+			$data['text_loading'] = $this->language->get('text_loading');
 
-		return $this->load->view('extension/payment/cod', $data);
+			$data['continue'] = $this->url->link('checkout/success');
+
+			return $this->response->setOutput($this->load->view('extension/payment/cod', $data));
+		}
+		$this->response->redirect($this->url->link('catalog/controller/error/not_found', '', true));
 	}
 
 	public function confirm() {
