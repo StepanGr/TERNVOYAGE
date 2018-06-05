@@ -138,7 +138,21 @@ $(document).ready(function() {
 
 });
 // Passenger add remove fucntion
+var payment = {
+	'loadPaymentConfirm' : function (val, domElement) {
+		$.ajax({
+			url: 'index.php?route=extension/payment/' + val,
+			dataType: 'html',
+			success: function(html) {
+				$(domElement).html(html);
 
+			},
+			error: function(xhr, ajaxOptions, thrownError) {
+				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+			}
+		});
+	}
+}
 var passenger = {
 	'update': function (cartId,  decrease ) {
         $.ajax({

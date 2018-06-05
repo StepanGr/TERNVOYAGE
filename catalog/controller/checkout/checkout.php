@@ -4,7 +4,7 @@ class ControllerCheckoutCheckout extends Controller {
     const PASSENGER = 'passenger';
 	public function index() {
 
-
+		
 	    $data['entry_agent'] = self::AGENT;
 		// Validate cart has products and has stock.
 		if ((!$this->cart->hasProducts() && empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
@@ -646,7 +646,7 @@ class ControllerCheckoutCheckout extends Controller {
 				);
 			}
 
-			$data['payment'] = $this->load->controller('extension/payment/' . $this->session->data['payment_method']['code']);
+//			$data['payment'] = $this->load->controller('extension/payment/' . $this->session->data['payment_method']['code']);
 		} else {
 			$data['redirect'] = $redirect;
 		}

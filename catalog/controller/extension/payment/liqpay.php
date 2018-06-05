@@ -3,37 +3,48 @@ class ControllerExtensionPaymentLiqPay extends Controller {
 	public function index() {
 		$data['button_confirm'] = $this->language->get('button_confirm');
 
-		$this->load->model('checkout/order');
-
-		$order_info = $this->model_checkout_order->getOrder($this->session->data['order_id']);
-
 		$data['action'] = 'https://liqpay.com/?do=clickNbuy';
+		$data['continue'] = $this->url->link('checkout/success');
 
-		$xml  = '<request>';
-		$xml .= '	<version>1.2</version>';
-		$xml .= '	<result_url>' . $this->url->link('checkout/success', '', true) . '</result_url>';
-		$xml .= '	<server_url>' . $this->url->link('extension/payment/liqpay/callback', '', true) . '</server_url>';
-		$xml .= '	<merchant_id>' . $this->config->get('liqpay_merchant') . '</merchant_id>';
-		$xml .= '	<order_id>' . $this->session->data['order_id'] . '</order_id>';
-		$xml .= '	<amount>' . $this->currency->format($order_info['total'], $order_info['currency_code'], $order_info['currency_value'], false) . '</amount>';
-		$xml .= '	<currency>' . $order_info['currency_code'] . '</currency>';
-		$xml .= '	<description>' . $this->config->get('config_name') . ' ' . $order_info['payment_firstname'] . ' ' . $order_info['payment_address_1'] . ' ' . $order_info['payment_address_2'] . ' ' . $order_info['payment_city'] . ' ' . $order_info['email'] . '</description>';
-		$xml .= '	<default_phone></default_phone>';
-		$xml .= '	<pay_way>' . $this->config->get('liqpay_type') . '</pay_way>';
-		$xml .= '</request>';
+		$data['xml'] = '';
+		$data['signature'] = '';
 
-		$data['xml'] = base64_encode($xml);
-		$data['signature'] = base64_encode(sha1($this->config->get('liqpay_signature') . $xml . $this->config->get('liqpay_signature'), true));
-
-		return $this->load->view('extension/payment/liqpay', $data);
+		return $this->response->setOutput( $this->load->view('extension/payment/liqpay', $data));
 	}
 
 	public function confirm() {
-		if ($this->session->data['payment_method']['code'] == 'liqpay') {
+		$json = [];
+		if (array_key_exists('order_id',$this->session->data) && $this->session->data['order_id'] > 0) {
 			$this->load->model('checkout/order');
 
+
+			$order_info = $this->session->data['order_data'];
+
+			$data['action'] = 'https://liqpay.com/?do=clickNbuy';
+
+
+			$xml  = '<request>';
+			$xml .= '	<version>1.2</version>';
+			$xml .= '	<result_url>' . $this->url->link('checkout/success', '', true) . '</result_url>';
+			$xml .= '	<server_url>' . $this->url->link('extension/payment/liqpay/callback', '', true) . '</server_url>';
+			$xml .= '	<merchant_id>' . $this->config->get('liqpay_merchant') . '</merchant_id>';
+			$xml .= '	<order_id>' . $this->session->data['order_id'] . '</order_id>';
+			$xml .= '	<amount>' . $this->currency->format($order_info['total'], $order_info['currency_code'], $order_info['currency_value'], false) . '</amount>';
+			$xml .= '	<currency>' . $order_info['currency_code'] . '</currency>';
+			$xml .= '	<description>' . $this->config->get('config_name') . ' ' . $order_info['email'] . '</description>';
+			$xml .= '	<default_phone></default_phone>';
+			$xml .= '	<pay_way>' . $this->config->get('liqpay_type') . '</pay_way>';
+			$xml .= '</request>';
+
+			$json['xml'] = base64_encode($xml);
+			$json['signature'] = base64_encode(sha1($this->config->get('liqpay_signature') . $xml . $this->config->get('liqpay_signature'), true));
+
+			$log = new Log('liqpay.log');
+			$log->write("start pay with internet requearing");
 			$this->model_checkout_order->addOrderHistory($this->session->data['order_id'], $this->config->get('liqpay_order_status_id'));
 		}
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($json));
 	}
 
 	public function callback() {
@@ -47,7 +58,8 @@ class ControllerExtensionPaymentLiqPay extends Controller {
 		$p = simplexml_load_string($xml);
 
 		$status_id = $this->config->get('config_order_status_id');
-
+		$log = new Log('liqpay.log');
+		$log->write("calback is back from order ($order_id)");
 		if ($signature == $this->request->post['signature']) {
 			$this->load->model('checkout/order');
 			if ($p->status == "success") {
