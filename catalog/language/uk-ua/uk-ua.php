@@ -35,6 +35,7 @@ $_['button_compare']        = 'Порівняти цей товар';
 $_['button_wishlist']       = 'Додати до списку бажань';
 $_['button_checkout']       = 'Оформити замовлення';
 $_['button_confirm']        = 'Підтвердити бронювання';
+$_['button_confirm_pay']    = 'Підтвердити та оплатити';
 $_['button_coupon']         = 'Використати купон';
 $_['button_delete']         = 'Знищити';
 $_['button_download']       = 'Завантажити';

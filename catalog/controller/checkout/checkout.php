@@ -108,10 +108,10 @@ class ControllerCheckoutCheckout extends Controller {
 		if ($this->cart->hasShipping()) {
 			// Validate if shipping address has been set.
 			if (!isset($this->session->data['shipping_address'])) {
-				$this->session->data['shipping_address']['firstname'] = 'panBuss';
-				$this->session->data['shipping_address']['lastname'] = 'panBuss';
-				$this->session->data['shipping_address']['company'] = 'panBuss';
-				$this->session->data['shipping_address']['address_1'] = 'panBuss';
+				$this->session->data['shipping_address']['firstname'] = 'TERNVOYAGE';
+				$this->session->data['shipping_address']['lastname'] = 'TERNVOYAGE';
+				$this->session->data['shipping_address']['company'] = 'TERNVOYAGE';
+				$this->session->data['shipping_address']['address_1'] = 'TERNVOYAGE';
 				$this->session->data['shipping_address']['address_2'] = '';
 				$this->session->data['shipping_address']['city'] = '';
 				$this->session->data['shipping_address']['postcode'] = '';
@@ -136,10 +136,10 @@ class ControllerCheckoutCheckout extends Controller {
 		}
 		// Validate if payment address has been set.
 		if (!isset($this->session->data['payment_address'])) {
-			$this->session->data['payment_address']['firstname'] = 'PanBuss';
-			$this->session->data['payment_address']['lastname'] = 'PanBuss';
-			$this->session->data['payment_address']['company'] = 'PanBuss';
-			$this->session->data['payment_address']['address_1'] = "PanBuss";
+			$this->session->data['payment_address']['firstname'] = 'TERNVOYAGE';
+			$this->session->data['payment_address']['lastname'] = 'TERNVOYAGE';
+			$this->session->data['payment_address']['company'] = 'TERNVOYAGE';
+			$this->session->data['payment_address']['address_1'] = "TERNVOYAGE";
 			$this->session->data['payment_address']['address_2'] = '';
 			$this->session->data['payment_address']['city'] = "";
 			$this->session->data['payment_address']['postcode'] = '';

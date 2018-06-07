@@ -1061,6 +1061,7 @@ span.hidden-lg {
 @media (min-width: 768px) {
     #content {
         padding: 50px 15px;
+        min-height: 300px;
     }
 }
 
@@ -2419,6 +2420,14 @@ h2.price {
 .checkout-checkout .table-responsive .table>tbody>tr>th {
 	border: 0;
 	padding: 15px 10px;
+}
+
+.payment-methods {
+    margin-bottom: 40px;
+}
+
+.payment-methods .radio {
+    margin-bottom: 20px;
 }
 
 .login-form {

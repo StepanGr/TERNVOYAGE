@@ -1,7 +1,7 @@
 <?php
 class ControllerExtensionPaymentLiqPay extends Controller {
 	public function index() {
-		$data['button_confirm'] = $this->language->get('button_confirm');
+		$data['button_confirm_pay'] = $this->language->get('button_confirm_pay');
 
 		$data['action'] = 'https://liqpay.com/?do=clickNbuy';
 		$data['continue'] = $this->url->link('checkout/success');
@@ -59,7 +59,7 @@ class ControllerExtensionPaymentLiqPay extends Controller {
 
 		$status_id = $this->config->get('config_order_status_id');
 		$log = new Log('liqpay.log');
-		$log->write("calback is back from order ($order_id)");
+		$log->write("calback is back from order ($order_id and status have $p->status)");
 		if ($signature == $this->request->post['signature']) {
 			$this->load->model('checkout/order');
 			if ($p->status == "success") {

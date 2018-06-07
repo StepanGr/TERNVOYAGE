@@ -5,4 +5,4 @@
 //info@marketplus.if.ua
 
 // Text
-$_['text_title'] = 'Готівкою при отриманні';
+$_['text_title'] = 'Готівкою при посадці';

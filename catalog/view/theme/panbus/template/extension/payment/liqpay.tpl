@@ -2,11 +2,9 @@
   <input type="hidden" name="operation_xml" value="<?php echo $xml; ?>">
   <input type="hidden" name="signature" value="<?php echo $signature; ?>">
 	<input type="hidden" name="continue" value="<?php echo $continue; ?>">
-  <div class="buttons">
-    <div class="pull-right">
-      <input type="button" value="<?php echo $button_confirm; ?>" id="button-confirm" class="btn btn-primary" />
-    </div>
-  </div>
+	<div class="buttons buttons-right">
+	    <input type="button" value="<?php echo $button_confirm_pay; ?>" id="button-confirm" class="btn btn-primary" data-loading-text="<?php echo $text_loading; ?>" />
+	</div>
 </form>
 <script type="text/javascript">
 	$('#button-confirm').on('click', function() {
